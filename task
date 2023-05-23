@@ -61,7 +61,12 @@ public class Campaign {
 		Thread.sleep(200);
 		driver.findElement(By.xpath("//span[@class='fa fa-user']")).click();
 		Thread.sleep(200);
-		driver.findElement(By.id("menubar_item_right_LBL_SIGN_OUT")).click();		
+		driver.findElement(By.id("menubar_item_right_LBL_SIGN_OUT")).click();	
+		
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://demo.vtiger.com/vtigercrm/");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//button[text()='Sign in']")).click();	
 	}
 }
 
