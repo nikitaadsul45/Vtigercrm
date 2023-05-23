@@ -66,7 +66,15 @@ public class Campaign {
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://demo.vtiger.com/vtigercrm/");
 		driver.manage().window().maximize();
-		driver.findElement(By.xpath("//button[text()='Sign in']")).click();	
+		driver.findElement(By.xpath("//button[text()='Sign in']")).click();
+		driver.findElement(By.xpath("(//span[@class='app-icon fa fa-bars'])[1]")).click();
+		WebElement ele = driver.findElement(By.xpath("//span[text()=' MARKETING']"));
+		Actions action=new Actions(driver);
+		Thread.sleep(200);
+		ele.click();
+		action.moveToElement(ele);
+		driver.findElement(By.xpath("//span[text()=' Campaigns']")).click();
+		Thread.sleep(200);
 	}
 }
 
