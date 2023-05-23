@@ -1,0 +1,67 @@
+package vtigerfeature;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Campaign {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://demo.vtiger.com/vtigercrm/");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//button[text()='Sign in']")).click();
+		driver.findElement(By.xpath("(//span[@class='app-icon fa fa-bars'])[1]")).click();
+		WebElement ele = driver.findElement(By.xpath("//span[text()=' MARKETING']"));
+		Actions action=new Actions(driver);
+		Thread.sleep(200);
+		ele.click();
+		action.moveToElement(ele);
+		driver.findElement(By.xpath("//span[text()=' Campaigns']")).click();
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_listView_basicAction_LBL_ADD_RECORD")).click();
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_campaignname")).sendKeys("Techno spirit");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_targetaudience")).sendKeys("100");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_closingdate")).click();
+		Thread.sleep(200);
+		driver.findElement(By.xpath("(//th[text()='Today'])[1]")).click();
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_sponsor")).sendKeys("Nikita's Devil");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_targetsize")).sendKeys("45");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_numsent")).sendKeys("99.99");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_budgetcost")).sendKeys("300000");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_actualcost")).sendKeys("331000");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_expectedrevenue")).sendKeys("400000");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_expectedsalescount")).sendKeys("100000");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_actualsalescount")).sendKeys("200000");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_expectedresponsecount")).sendKeys("30000");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_actualresponsecount")).sendKeys("27000");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_expectedroi")).sendKeys("400000");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_actualroi")).sendKeys("390000");
+		Thread.sleep(200);
+		driver.findElement(By.id("Campaigns_editView_fieldName_description")).sendKeys("This is one of the best as well as biggest campaign");
+		Thread.sleep(200);
+		driver.findElement(By.xpath("//button[text()='Save']")).click();
+		Thread.sleep(200);
+		driver.findElement(By.xpath("//span[@class='fa fa-user']")).click();
+		Thread.sleep(200);
+		driver.findElement(By.id("menubar_item_right_LBL_SIGN_OUT")).click();		
+	}
+}
+
